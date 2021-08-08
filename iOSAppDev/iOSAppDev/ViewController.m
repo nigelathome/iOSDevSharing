@@ -7,7 +7,24 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@implementation MyView
+
+- (void)willMoveToSuperview:(nullable UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    
+}
+
+- (void)didMoveToSuperview {
+    [super didMoveToSuperview];
+}
+
+- (void)willMoveToWindow:(nullable UIWindow *)newWindow {
+    [super willMoveToWindow:newWindow];
+}
+
+- (void)didMoveToWindow {
+    [super didMoveToWindow];
+}
 
 @end
 
@@ -17,6 +34,11 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor cyanColor];
+    [self.view addSubview:({
+        MyView *view = [[MyView alloc] initWithFrame:CGRectMake(150, 150, 200, 300)];
+        view.backgroundColor = [UIColor redColor];
+        view;
+    })];
     
     [self.view addSubview:({
         UILabel *label = [[UILabel alloc] init];

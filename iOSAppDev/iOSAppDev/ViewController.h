@@ -7,6 +7,11 @@
 
 #import <UIKit/UIKit.h>
 
+@interface MyView : UIView
+ 
+
+@end
+
 @interface ViewController : UIViewController
 
 
