@@ -16,6 +16,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor cyanColor];
+    
     [self.view addSubview:({
         UILabel *label = [[UILabel alloc] init];
         label.text = @"Hello, World";
