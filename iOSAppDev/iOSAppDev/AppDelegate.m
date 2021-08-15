@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "GTVideoViewController.h"
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -26,7 +27,7 @@
     vc1.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home@2x.png"];
     vc1.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected@2x.png"];
     
-    UIViewController *vc2 = [[UIViewController alloc] init];
+    GTVideoViewController *vc2 = [[GTVideoViewController alloc] init];
     vc2.view.backgroundColor = [UIColor orangeColor];
     vc2.tabBarItem.title = @"视频";
     vc2.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
