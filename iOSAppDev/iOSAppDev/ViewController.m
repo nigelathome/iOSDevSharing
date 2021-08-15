@@ -33,19 +33,23 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor cyanColor];
-    [self.view addSubview:({
-        MyView *view = [[MyView alloc] initWithFrame:CGRectMake(150, 150, 200, 300)];
-        view.backgroundColor = [UIColor redColor];
-        view;
-    })];
     
-    [self.view addSubview:({
-        UILabel *label = [[UILabel alloc] init];
-        label.text = @"Hello, World";
-        [label sizeToFit];
-        label.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
-        label;
-    })];
+    MyView *view = [[MyView alloc] initWithFrame:CGRectMake(150, 150, 200, 300)];
+    view.backgroundColor = [UIColor redColor];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushViewController:)];
+    [view addGestureRecognizer:tapGesture];
+    [self.view addSubview:view];
+}
+
+- (void)pushViewController:(id)sender {
+    if (![sender isKindOfClass:[UITapGestureRecognizer class]]) {
+        return;
+    }
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.navigationItem.title = @"二级页面";
+    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右边的标题" style:UIBarButtonItemStylePlain target:self action:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -9,11 +9,9 @@
 
 @interface MyView : UIView
  
-
 @end
 
 @interface ViewController : UIViewController
-
 
 @end
 
