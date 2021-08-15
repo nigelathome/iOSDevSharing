@@ -8,7 +8,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UITabBarControllerDelegate>
 
 @end
 
@@ -45,6 +45,7 @@
     vc4.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
     
     tabBarController.viewControllers = @[vc1, vc2, vc3, vc4];
+    tabBarController.delegate = self;
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
     self.window.rootViewController = navigationController;
@@ -53,12 +54,10 @@
     return YES;
 }
 
-#pragma mark - UISceneSession lifecycle
+#pragma mark - UITabBarControllerDelegate
 
-
-//iOS 12 : AppDelegate
-//iOS 13 : AppDelegate  + UIScene
-
-
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    printf("点击tab\n");
+}
 
 @end
