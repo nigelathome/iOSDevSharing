@@ -9,7 +9,7 @@
 
 #define cell_id @"cell_id"
 
-@interface ViewController () <UITableViewDataSource>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong, readwrite) NSMutableDictionary *cellDict;
 
@@ -71,6 +71,7 @@
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     tableView.dataSource = self;
+    tableView.delegate = self;
     [self.view addSubview:tableView];
 }
 
@@ -79,13 +80,11 @@
         return;
     }
     
-//    UIViewController *vc = [[UIViewController alloc] init];
-//    vc.view.backgroundColor = [UIColor magentaColor];
-//    vc.navigationItem.title = @"二级页面";
-//    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
-//    [self.navigationController pushViewController:vc animated:YES];
-    
-    
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor magentaColor];
+    vc.navigationItem.title = @"二级页面";
+    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -107,12 +106,30 @@
     } else {
         printf("复用的cell 地址：%p\n", key);
     }
-    cell.textLabel.text = @"主标题";
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"主标题 块:%ld 行:%ld", indexPath.section, indexPath.row];
     cell.detailTextLabel.text = @"副标题";
     cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
     return cell;
 }
 
+#pragma mark - UITableViewDataDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor magentaColor];
+    vc.navigationItem.title = [NSString stringWithFormat:@"主标题 块:%ld 行:%ld", indexPath.section, indexPath.row];
+    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 #pragma mark - lazy load
 
