@@ -12,7 +12,7 @@
 @end
 
 @implementation GTVideoViewController
-UIcont
+
 #pragma mark - life cycle
 
 - (void)viewDidLoad {
@@ -85,14 +85,5 @@ UIcont
     
     return CGSizeZero;
 }
-
-/*
- deleget = self;
- <XXXdelege>
- 实现代理方法
- 
- + 注册cell
- + layout
- */
 
 @end
