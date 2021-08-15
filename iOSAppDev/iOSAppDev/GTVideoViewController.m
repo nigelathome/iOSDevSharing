@@ -23,7 +23,7 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
 //    flowLayout.minimumLineSpacing = 10;
 //    flowLayout.minimumInteritemSpacing = 10;
-//    flowLayout.itemSize = CGSizeMake((self.view.frame.size.width - 50) / 3, 60);
+//    flowLayout.itemSize = CGSizeMake((self.view.frame.size.width - 10 * 2) / 2, 60);
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell_id1"];
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell_id2"];
@@ -76,11 +76,11 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.item % 3 == 0) {
-        return CGSizeMake((self.view.frame.size.width - 80) / 3, 60);
+        return CGSizeMake((self.view.frame.size.width - 10 * 2) / 2, 60);
     } else if (indexPath.item % 3 == 1) {
-        return CGSizeMake((self.view.frame.size.width - 80) / 3, 80);
+        return CGSizeMake((self.view.frame.size.width - 10 * 2) / 2, 80);
     } else {
-        return CGSizeMake((self.view.frame.size.width - 80) / 3, 120);
+        return CGSizeMake((self.view.frame.size.width - 10 * 2) / 2, 120);
     }
     
     return CGSizeZero;
