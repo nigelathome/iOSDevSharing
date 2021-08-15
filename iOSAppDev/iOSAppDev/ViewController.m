@@ -7,6 +7,14 @@
 
 #import "ViewController.h"
 
+#define cell_id @"cell_id"
+
+@interface ViewController () <UITableViewDataSource>
+
+@property (nonatomic, strong, readwrite) NSMutableDictionary *cellDict;
+
+@end
+
 @implementation MyView
 
 - (void)willMoveToSuperview:(nullable UIView *)newSuperview {
@@ -55,11 +63,15 @@
 //    printf("frame: (%.1f %.1f %.1f %.1f)\n", v3.frame.origin.x, v3.frame.origin.y, v3.frame.size.width, v3.frame.size.height);
 //    [self.view addSubview:v3];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 150, 200, 100)];
-    view.backgroundColor = [UIColor magentaColor];
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController:)];
-    [view addGestureRecognizer:tapGesture];
-    [self.view addSubview:view];
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 150, 200, 100)];
+//    view.backgroundColor = [UIColor magentaColor];
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController:)];
+//    [view addGestureRecognizer:tapGesture];
+//    [self.view addSubview:view];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.dataSource = self;
+    [self.view addSubview:tableView];
 }
 
 - (void)pushController:(id)sender {
@@ -67,11 +79,49 @@
         return;
     }
     
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor magentaColor];
-    vc.navigationItem.title = @"二级页面";
-    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
-    [self.navigationController pushViewController:vc animated:YES];
+//    UIViewController *vc = [[UIViewController alloc] init];
+//    vc.view.backgroundColor = [UIColor magentaColor];
+//    vc.navigationItem.title = @"二级页面";
+//    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_id"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell_id"];
+    }
+    
+    NSString *key = [NSString stringWithFormat:@"%p", cell];
+    if (![self.cellDict objectForKey:key]) {
+        printf("新创建的cell 地址：%p\n", cell);
+        [self.cellDict setObject:[NSString stringWithFormat:@"%p", cell] forKey:key];
+    } else {
+        printf("复用的cell 地址：%p\n", key);
+    }
+    cell.textLabel.text = @"主标题";
+    cell.detailTextLabel.text = @"副标题";
+    cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
+    return cell;
+}
+
+
+#pragma mark - lazy load
+
+- (NSMutableDictionary *)cellDict {
+    if (!_cellDict) {
+        _cellDict = [NSMutableDictionary dictionary];
+    }
+    
+    return _cellDict;
 }
 
 @end
