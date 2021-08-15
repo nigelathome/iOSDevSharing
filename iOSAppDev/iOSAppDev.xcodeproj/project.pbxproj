@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26525C2326C9112F0060CAFD /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26525C2226C9112F0060CAFD /* GTVideoViewController.m */; };
 		265A769B26BFB80E00A9E444 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 265A769A26BFB80E00A9E444 /* AppDelegate.m */; };
 		265A769E26BFB80E00A9E444 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 265A769D26BFB80E00A9E444 /* SceneDelegate.m */; };
 		265A76A126BFB80E00A9E444 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265A76A026BFB80E00A9E444 /* ViewController.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26525C2126C9112F0060CAFD /* GTVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoViewController.h; sourceTree = "<group>"; };
+		26525C2226C9112F0060CAFD /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoViewController.m; sourceTree = "<group>"; };
 		265A769626BFB80E00A9E444 /* iOSAppDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAppDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		265A769926BFB80E00A9E444 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		265A769A26BFB80E00A9E444 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +78,8 @@
 				265A76A726BFB81500A9E444 /* LaunchScreen.storyboard */,
 				265A76AA26BFB81500A9E444 /* Info.plist */,
 				265A76AB26BFB81500A9E444 /* main.m */,
+				26525C2126C9112F0060CAFD /* GTVideoViewController.h */,
+				26525C2226C9112F0060CAFD /* GTVideoViewController.m */,
 			);
 			path = iOSAppDev;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				265A76A126BFB80E00A9E444 /* ViewController.m in Sources */,
+				26525C2326C9112F0060CAFD /* GTVideoViewController.m in Sources */,
 				265A769B26BFB80E00A9E444 /* AppDelegate.m in Sources */,
 				265A76AC26BFB81500A9E444 /* main.m in Sources */,
 				265A769E26BFB80E00A9E444 /* SceneDelegate.m in Sources */,
