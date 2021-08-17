@@ -15,6 +15,17 @@
 
 #pragma mark - life cycle
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.view.backgroundColor = [UIColor orangeColor];
+        self.tabBarItem.title = @"视频";
+        self.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/video_selected@2x.png"];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

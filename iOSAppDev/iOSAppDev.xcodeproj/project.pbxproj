@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262E5C7A26CBD03800CA0EB3 /* GTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262E5C7926CBD03800CA0EB3 /* GTNewsViewController.m */; };
 		26525C2626C937F50060CAFD /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26525C2526C937F50060CAFD /* GTVideoViewController.m */; };
 		265A769B26BFB80E00A9E444 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 265A769A26BFB80E00A9E444 /* AppDelegate.m */; };
 		265A769E26BFB80E00A9E444 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 265A769D26BFB80E00A9E444 /* SceneDelegate.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		262E5C7826CBD03800CA0EB3 /* GTNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNewsViewController.h; sourceTree = "<group>"; };
+		262E5C7926CBD03800CA0EB3 /* GTNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNewsViewController.m; sourceTree = "<group>"; };
 		26525C2426C937F50060CAFD /* GTVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoViewController.h; sourceTree = "<group>"; };
 		26525C2526C937F50060CAFD /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoViewController.m; sourceTree = "<group>"; };
 		265A769626BFB80E00A9E444 /* iOSAppDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAppDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +83,8 @@
 				265A76AB26BFB81500A9E444 /* main.m */,
 				26525C2426C937F50060CAFD /* GTVideoViewController.h */,
 				26525C2526C937F50060CAFD /* GTVideoViewController.m */,
+				262E5C7826CBD03800CA0EB3 /* GTNewsViewController.h */,
+				262E5C7926CBD03800CA0EB3 /* GTNewsViewController.m */,
 			);
 			path = iOSAppDev;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				26525C2626C937F50060CAFD /* GTVideoViewController.m in Sources */,
 				265A769B26BFB80E00A9E444 /* AppDelegate.m in Sources */,
 				265A76AC26BFB81500A9E444 /* main.m in Sources */,
+				262E5C7A26CBD03800CA0EB3 /* GTNewsViewController.m in Sources */,
 				265A769E26BFB80E00A9E444 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
