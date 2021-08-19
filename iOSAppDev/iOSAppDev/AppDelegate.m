@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "GTVideoViewController.h"
+#import "GTNewsViewController.h"
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -21,6 +22,7 @@
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     
     ViewController *vc1 = [[ViewController alloc] init];
+    
     vc1.view.backgroundColor = [UIColor whiteColor];
     vc1.tabBarItem.title = @"主页";
     vc1.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home@2x.png"];
@@ -28,11 +30,7 @@
     
     GTVideoViewController *vc2 = [[GTVideoViewController alloc] init];
     
-    UIViewController *vc3 = [[UIViewController alloc] init];
-    vc3.view.backgroundColor = [UIColor yellowColor];
-    vc3.tabBarItem.title = @"潮流";
-    vc3.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/like@2x.png"];
-    vc3.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/like_selected@2x.png"];
+    GTNewsViewController *vc3 = [[GTNewsViewController alloc] init];
     
     UIViewController *vc4 = [[UIViewController alloc] init];
     vc4.view.backgroundColor = [UIColor greenColor];
@@ -42,24 +40,18 @@
     
     tabBarController.viewControllers = @[vc1, vc2, vc3, vc4];
     tabBarController.delegate = self;
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
-
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     
     return YES;
 }
 
+#pragma mark - UITabBarControllerDelegate
+
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
-    printf("点击了tab\n");
+    printf("点击tab\n");
 }
-
-#pragma mark - UISceneSession lifecycle
-
-
-//iOS 12 : AppDelegate
-//iOS 13 : AppDelegate  + UIScene
-
-
 
 @end

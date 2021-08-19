@@ -7,9 +7,7 @@
 
 #import "ViewController.h"
 
-#define cell_id @"cell_id"
-
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface  ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong, readwrite) NSMutableDictionary *cellDict;
 
@@ -39,51 +37,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
-//    //frame的位置是相对父视图原点的位置 也就是v1相对self.view的位置
-//    UIView *v1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 160, 90)];
-//    v1.backgroundColor = [UIColor magentaColor];
-//    [self.view addSubview:v1];
-//    printf("bounds: (%.1f %.1f %.1f %.1f)\n", v1.bounds.origin.x, v1.bounds.origin.y, v1.bounds.size.width, v1.bounds.size.height);
-//    printf("frame: (%.1f %.1f %.1f %.1f)\n", v1.frame.origin.x, v1.frame.origin.y, v1.frame.size.width, v1.frame.size.height);
-//
-//    //bounds的位置v2原点 默认是(0,0)也就是左上角 改变bounds的位置不影响v2本身 但会影响v2的子视图 因为子视图都是基于他们的父视图来确定位置
-//    UIView *v2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 160, 90)];
-//    v2.bounds = CGRectMake(80, 0, 160, 90);
-//    v2.backgroundColor = [UIColor orangeColor];
-//    printf("bounds: (%.1f %.1f %.1f %.1f)\n", v2.bounds.origin.x, v2.bounds.origin.y, v2.bounds.size.width, v2.bounds.size.height);
-//    printf("frame: (%.1f %.1f %.1f %.1f)\n", v2.frame.origin.x, v2.frame.origin.y, v2.frame.size.width, v2.frame.size.height);
-//    [self.view addSubview:v2];
-//
-//    //改变bounds的大小 中心点保持不变 v3中心点是(80, 45) 长宽改变从而影响v3位置
-//    UIView *v3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 160, 90)];
-//    v3.bounds = CGRectMake(0, 0, 320, 90);
-//    v3.backgroundColor = [UIColor orangeColor];
-//    printf("bounds: (%.1f %.1f %.1f %.1f)\n", v3.bounds.origin.x, v3.bounds.origin.y, v3.bounds.size.width, v3.bounds.size.height);
-//    printf("frame: (%.1f %.1f %.1f %.1f)\n", v3.frame.origin.x, v3.frame.origin.y, v3.frame.size.width, v3.frame.size.height);
-//    [self.view addSubview:v3];
     
-//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 150, 200, 100)];
-//    view.backgroundColor = [UIColor magentaColor];
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController:)];
+    self.view.backgroundColor = [UIColor cyanColor];
+    
+//    MyView *view = [[MyView alloc] initWithFrame:CGRectMake(150, 150, 200, 300)];
+//    view.backgroundColor = [UIColor redColor];
+//
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushViewController:)];
 //    [view addGestureRecognizer:tapGesture];
 //    [self.view addSubview:view];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;
     [self.view addSubview:tableView];
 }
 
-- (void)pushController:(id)sender {
+- (void)pushViewController:(id)sender {
     if (![sender isKindOfClass:[UITapGestureRecognizer class]]) {
         return;
     }
-    
     UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor magentaColor];
     vc.navigationItem.title = @"二级页面";
-    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
+    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右边的标题" style:UIBarButtonItemStylePlain target:self action:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -94,44 +70,46 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_id"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_Id"];
+    
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell_id"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell_Id"];
     }
+    
+    cell.textLabel.text = @"主标题";
+    cell.detailTextLabel.text = @"次标题";
+    cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
     
     NSString *key = [NSString stringWithFormat:@"%p", cell];
     if (![self.cellDict objectForKey:key]) {
-        printf("新创建的cell 地址：%p\n", cell);
         [self.cellDict setObject:[NSString stringWithFormat:@"%p", cell] forKey:key];
+        printf("新创建的cell: %p\n", cell);
     } else {
-        printf("复用的cell 地址：%p\n", key);
+        printf("复用的cell: %p\n", cell);
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"主标题 块:%ld 行:%ld", indexPath.section, indexPath.row];
-    cell.detailTextLabel.text = @"副标题";
-    cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
     return cell;
 }
 
-#pragma mark - UITableViewDataDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
-}
+#pragma mark - UITableViewDataSource
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 120;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor magentaColor];
-    vc.navigationItem.title = [NSString stringWithFormat:@"主标题 块:%ld 行:%ld", indexPath.section, indexPath.row];
-    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
+    vc.navigationItem.title = @"二级页面";
+    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右边的标题" style:UIBarButtonItemStylePlain target:self action:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-#pragma mark - lazy load
+#pragma mark - lazy method
 
 - (NSMutableDictionary *)cellDict {
     if (!_cellDict) {
