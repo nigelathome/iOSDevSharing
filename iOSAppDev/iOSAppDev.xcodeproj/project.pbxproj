@@ -18,6 +18,7 @@
 		265A76A926BFB81500A9E444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265A76A726BFB81500A9E444 /* LaunchScreen.storyboard */; };
 		265A76AC26BFB81500A9E444 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 265A76AB26BFB81500A9E444 /* main.m */; };
 		265A76C826BFF41600A9E444 /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 265A76C726BFF41600A9E444 /* icon.bundle */; };
+		26C42CF326E0C7EB00864070 /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C42CF226E0C7EB00864070 /* GTNormalTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		265A76AA26BFB81500A9E444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		265A76AB26BFB81500A9E444 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		265A76C726BFF41600A9E444 /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
+		26C42CF126E0C7EB00864070 /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
+		26C42CF226E0C7EB00864070 /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				262E5C7926CBD03800CA0EB3 /* GTNewsViewController.m */,
 				262E5C7B26CE3BE500CA0EB3 /* GTHomeTableViewCell.h */,
 				262E5C7C26CE3BE500CA0EB3 /* GTHomeTableViewCell.m */,
+				26C42CF126E0C7EB00864070 /* GTNormalTableViewCell.h */,
+				26C42CF226E0C7EB00864070 /* GTNormalTableViewCell.m */,
 			);
 			path = iOSAppDev;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				265A76A126BFB80E00A9E444 /* GTHomeViewController.m in Sources */,
+				26C42CF326E0C7EB00864070 /* GTNormalTableViewCell.m in Sources */,
 				26525C2626C937F50060CAFD /* GTVideoViewController.m in Sources */,
 				265A769B26BFB80E00A9E444 /* AppDelegate.m in Sources */,
 				265A76AC26BFB81500A9E444 /* main.m in Sources */,

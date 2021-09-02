@@ -6,10 +6,15 @@
 //
 
 #import "GTHomeViewController.h"
+#import "GTNormalTableViewCell.h"
+
+static const NSUInteger rowCnt = 20;
+static const CGFloat cellHeight = 96;
 
 @interface  GTHomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong, readwrite) NSMutableDictionary *cellDict;
+@property (nonatomic, strong, readwrite) NSMutableArray *dataArray;
 
 @end
 
@@ -51,6 +56,8 @@
     tableView.dataSource = self;
     tableView.delegate = self;
     [self.view addSubview:tableView];
+
+    [self loadModel];
 }
 
 - (void)pushViewController:(id)sender {
@@ -66,19 +73,15 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return rowCnt;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_Id"];
+    GTNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_Id"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell_Id"];
+        cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell_Id"];
     }
-    
-    cell.textLabel.text = @"主标题";
-    cell.detailTextLabel.text = @"次标题";
-    cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
-    
+
     NSString *key = [NSString stringWithFormat:@"%p", cell];
     if (![self.cellDict objectForKey:key]) {
         [self.cellDict setObject:[NSString stringWithFormat:@"%p", cell] forKey:key];
@@ -86,6 +89,8 @@
     } else {
         printf("复用的cell: %p\n", cell);
     }
+
+    [cell loadData:[self.dataArray objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -97,7 +102,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 120;
+    return cellHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -105,6 +110,16 @@
     vc.navigationItem.title = @"二级页面";
     vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右边的标题" style:UIBarButtonItemStylePlain target:self action:nil];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)loadModel {
+    NSDictionary *d1 = @{@"comment": @"comment",
+                         @"time": @"time",
+                         @"image": @"icon.bundle/icon.png"
+    };
+    for (NSUInteger i = 0; i < rowCnt; i++) {
+        [self.dataArray addObject:d1];
+    }
 }
 
 #pragma mark - lazy method
@@ -115,6 +130,14 @@
     }
     
     return _cellDict;
+}
+
+- (NSMutableArray *)dataArray {
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+
+    return _dataArray;
 }
 
 @end
