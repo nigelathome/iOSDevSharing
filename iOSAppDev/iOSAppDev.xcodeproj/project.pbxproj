@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		262E5C7A26CBD03800CA0EB3 /* GTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262E5C7926CBD03800CA0EB3 /* GTNewsViewController.m */; };
+		262E5C7D26CE3BE500CA0EB3 /* GTHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 262E5C7C26CE3BE500CA0EB3 /* GTHomeTableViewCell.m */; };
 		26525C2626C937F50060CAFD /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26525C2526C937F50060CAFD /* GTVideoViewController.m */; };
 		265A769B26BFB80E00A9E444 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 265A769A26BFB80E00A9E444 /* AppDelegate.m */; };
 		265A769E26BFB80E00A9E444 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 265A769D26BFB80E00A9E444 /* SceneDelegate.m */; };
-		265A76A126BFB80E00A9E444 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265A76A026BFB80E00A9E444 /* ViewController.m */; };
+		265A76A126BFB80E00A9E444 /* GTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265A76A026BFB80E00A9E444 /* GTHomeViewController.m */; };
 		265A76A426BFB80E00A9E444 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265A76A226BFB80E00A9E444 /* Main.storyboard */; };
 		265A76A626BFB81500A9E444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 265A76A526BFB81500A9E444 /* Assets.xcassets */; };
 		265A76A926BFB81500A9E444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265A76A726BFB81500A9E444 /* LaunchScreen.storyboard */; };
@@ -22,6 +23,8 @@
 /* Begin PBXFileReference section */
 		262E5C7826CBD03800CA0EB3 /* GTNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNewsViewController.h; sourceTree = "<group>"; };
 		262E5C7926CBD03800CA0EB3 /* GTNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNewsViewController.m; sourceTree = "<group>"; };
+		262E5C7B26CE3BE500CA0EB3 /* GTHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHomeTableViewCell.h; sourceTree = "<group>"; };
+		262E5C7C26CE3BE500CA0EB3 /* GTHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTHomeTableViewCell.m; sourceTree = "<group>"; };
 		26525C2426C937F50060CAFD /* GTVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoViewController.h; sourceTree = "<group>"; };
 		26525C2526C937F50060CAFD /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoViewController.m; sourceTree = "<group>"; };
 		265A769626BFB80E00A9E444 /* iOSAppDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAppDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,8 +32,8 @@
 		265A769A26BFB80E00A9E444 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		265A769C26BFB80E00A9E444 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		265A769D26BFB80E00A9E444 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		265A769F26BFB80E00A9E444 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		265A76A026BFB80E00A9E444 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		265A769F26BFB80E00A9E444 /* GTHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTHomeViewController.h; sourceTree = "<group>"; };
+		265A76A026BFB80E00A9E444 /* GTHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTHomeViewController.m; sourceTree = "<group>"; };
 		265A76A326BFB80E00A9E444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		265A76A526BFB81500A9E444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		265A76A826BFB81500A9E444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,8 +77,8 @@
 				265A769A26BFB80E00A9E444 /* AppDelegate.m */,
 				265A769C26BFB80E00A9E444 /* SceneDelegate.h */,
 				265A769D26BFB80E00A9E444 /* SceneDelegate.m */,
-				265A769F26BFB80E00A9E444 /* ViewController.h */,
-				265A76A026BFB80E00A9E444 /* ViewController.m */,
+				265A769F26BFB80E00A9E444 /* GTHomeViewController.h */,
+				265A76A026BFB80E00A9E444 /* GTHomeViewController.m */,
 				265A76A226BFB80E00A9E444 /* Main.storyboard */,
 				265A76A526BFB81500A9E444 /* Assets.xcassets */,
 				265A76A726BFB81500A9E444 /* LaunchScreen.storyboard */,
@@ -85,6 +88,8 @@
 				26525C2526C937F50060CAFD /* GTVideoViewController.m */,
 				262E5C7826CBD03800CA0EB3 /* GTNewsViewController.h */,
 				262E5C7926CBD03800CA0EB3 /* GTNewsViewController.m */,
+				262E5C7B26CE3BE500CA0EB3 /* GTHomeTableViewCell.h */,
+				262E5C7C26CE3BE500CA0EB3 /* GTHomeTableViewCell.m */,
 			);
 			path = iOSAppDev;
 			sourceTree = "<group>";
@@ -159,11 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				265A76A126BFB80E00A9E444 /* ViewController.m in Sources */,
+				265A76A126BFB80E00A9E444 /* GTHomeViewController.m in Sources */,
 				26525C2626C937F50060CAFD /* GTVideoViewController.m in Sources */,
 				265A769B26BFB80E00A9E444 /* AppDelegate.m in Sources */,
 				265A76AC26BFB81500A9E444 /* main.m in Sources */,
 				262E5C7A26CBD03800CA0EB3 /* GTNewsViewController.m in Sources */,
+				262E5C7D26CE3BE500CA0EB3 /* GTHomeTableViewCell.m in Sources */,
 				265A769E26BFB80E00A9E444 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

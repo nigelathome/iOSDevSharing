@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "GTHomeViewController.h"
 #import "GTVideoViewController.h"
 #import "GTNewsViewController.h"
 
@@ -21,7 +21,7 @@
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     
-    ViewController *vc1 = [[ViewController alloc] init];
+    GTHomeViewController *vc1 = [[GTHomeViewController alloc] init];
     
     vc1.view.backgroundColor = [UIColor whiteColor];
     vc1.tabBarItem.title = @"主页";

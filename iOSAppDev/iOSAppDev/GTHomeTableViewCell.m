@@ -9,6 +9,14 @@
 
 @implementation GTHomeTableViewCell
 
+- (instancetype)init {
+    if (self = [super init]) {
+        
+    }
+    
+    return self;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
