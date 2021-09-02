@@ -1,13 +1,13 @@
 //
-//  ViewController.m
+//  GTHomeViewController.m
 //  iOSAppDev
 //
 //  Created by nigelli on 2021/8/8.
 //
 
-#import "ViewController.h"
+#import "GTHomeViewController.h"
 
-@interface  ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface  GTHomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong, readwrite) NSMutableDictionary *cellDict;
 

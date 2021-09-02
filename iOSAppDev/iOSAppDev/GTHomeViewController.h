@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GTHomeViewController.h
 //  iOSAppDev
 //
 //  Created by nigelli on 2021/8/8.
@@ -11,7 +11,7 @@
  
 @end
 
-@interface ViewController : UIViewController
+@interface GTHomeViewController : UIViewController
 
 @end
 
