@@ -71,6 +71,7 @@ const static CGFloat imageSize = 80;
             [self.deleteButton setTitle:@"X" forState:UIControlStateNormal];
             [self.deleteButton setTitle:@"Y" forState:UIControlStateHighlighted];
             self.deleteButton.userInteractionEnabled = YES;
+            [self.deleteButton addTarget:self action:@selector(deleteButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             self.deleteButton;
         })];
     }
@@ -97,6 +98,11 @@ const static CGFloat imageSize = 80;
     self.commentLabel.text = [data objectForKey:@"comment"] ? :@"";
     self.timeLabel.text = [data objectForKey:@"time"] ?: @"";
     self.rightImageView.image = [UIImage imageNamed:[data objectForKey:@"image"] ?: @""];
+}
+
+- (void)deleteButtonClick:(id)btn {
+    if ((UIButton *)btn != self.deleteButton) return;
+    printf("==deleteButtonClick==\n");
 }
 
 @end
