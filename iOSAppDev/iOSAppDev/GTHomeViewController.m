@@ -113,10 +113,10 @@ static const CGFloat cellHeight = 96;
 }
 
 - (void)loadModel {
-    NSDictionary *d1 = @{@"title": @"My APP",
-                         @"source": @"Greek Time",
-                         @"comment": @"comment",
-                         @"time": @"time",
+    NSDictionary *d1 = @{@"title": @"News Title",
+                         @"source": @"Greek-Time",
+                         @"comment": @"detail info",
+                         @"time": @"2021/9/18",
                          @"image": @"icon.bundle/icon.png"
     };
     for (NSUInteger i = 0; i < rowCnt; i++) {
