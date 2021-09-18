@@ -7,6 +7,9 @@
 
 #import "GTNormalTableViewCell.h"
 
+const static CGFloat deleteButtonSize = 25;
+const static CGFloat imageSize = 80;
+
 @interface GTNormalTableViewCell ()
 
 @property (nonatomic, strong, readwrite) UILabel *titleLabel;
@@ -61,21 +64,31 @@
             self.rightImageView.backgroundColor = [UIColor redColor];
             self.rightImageView;
         })];
+
+        [self.contentView addSubview:({
+            self.deleteButton = [[UIButton alloc] initWithFrame:CGRectZero];
+            self.deleteButton.backgroundColor = [UIColor blueColor];
+            [self.deleteButton setTitle:@"X" forState:UIControlStateNormal];
+            [self.deleteButton setTitle:@"Y" forState:UIControlStateHighlighted];
+            self.deleteButton.userInteractionEnabled = YES;
+            self.deleteButton;
+        })];
     }
 
     return self;
 }
 
 - (void)layoutSubviews {
-    self.titleLabel.frame = CGRectMake(15, 15, 80, 40);
+    self.rightImageView.frame = CGRectMake(15, 8, imageSize, imageSize);
+    self.titleLabel.frame = CGRectMake(self.rightImageView.frame.origin.x + self.rightImageView.frame.size.width + 16, 16, 80, 40);
     [self.titleLabel sizeToFit];
-    self.sourceLabel.frame = CGRectMake(self.titleLabel.frame.origin.x, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + 15 , 50, 20);
+    self.sourceLabel.frame = CGRectMake(self.titleLabel.frame.origin.x, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + 16 , 50, 20);
     [self.sourceLabel sizeToFit];
     self.commentLabel.frame = CGRectMake(self.sourceLabel.frame.origin.x + self.sourceLabel.frame.size.width + 8, self.sourceLabel.frame.origin.y, 50, 20);
     [self.commentLabel sizeToFit];
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + 8, self.commentLabel.frame.origin.y, 50, 20);
     [self.timeLabel sizeToFit];
-    self.rightImageView.frame = CGRectMake(self.frame.origin.x + self.frame.size.width - 16 - 80, 8, 80, 80);
+    self.deleteButton.frame = CGRectMake(self.frame.origin.x + self.frame.size.width - 16 - 25, 8, deleteButtonSize, deleteButtonSize);
 }
 
 - (void)loadData:(NSDictionary *)data {
